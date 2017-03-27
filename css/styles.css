@@ -1,0 +1,112 @@
+body {
+    font-family: 'Cabin', sans-serif;
+    font-size: 20px;
+    background-color: #fafafa;
+}
+
+.jumbotron {
+    background-color: #337ab7;
+    height: 250px;
+    color: #fff;
+}
+
+h1 {
+    margin-bottom: 25px;
+}
+
+header,
+header h1 {
+    background-color: #337ab7;
+    color: #fafafa;
+    margin-bottom: 25px;
+}
+
+.form-signup,
+.add_admin,
+.add_doctor {
+    display: none;
+    opacity: 0;
+}
+
+.form-control {
+    margin-bottom: 10px;
+}
+
+.btn-block {
+    margin-bottom: 8px;
+    margin-top: 8px;
+}
+
+#navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+}
+
+.navbar-inverse {
+    background-color: #337ab7;
+    border-color: #337ab7;
+    color: #fafafa;
+}
+
+.navbar-inverse .navbar-nav>li>a,
+.navbar-inverse .navbar-brand {
+    color: #fff;
+}
+
+input.inline,
+select.inline {
+    margin-left: 0;
+    margin-right: 0;
+    width: 49.5%;
+}
+
+input.inline#firstName,
+input.inline#registerPassword,
+select.inline#erikoisalaID,
+#startTime,
+.align-left {
+    float: left;
+}
+
+input.inline#lastName,
+input.inline#registerPassword1,
+select.inline#toimipisteID,
+#endTime,
+.align-right {
+    float: right;
+}
+
+.lastForm {
+    margin-bottom: 20px;
+}
+
+#ui-datepicker-div {
+    font-size: 13px;
+}
+
+.nuoli {
+    cursor: pointer;
+}
+
+#calendarTable {
+    border-collapse: separate;
+}
+
+#calendarTable th, #calendarTable td {
+    vertical-align: middle;
+}
+
+.table-bordered>tbody>tr>td,
+.table-bordered>tbody>tr>th,
+.table-bordered>tfoot>tr>td,
+.table-bordered>tfoot>tr>th,
+.table-bordered>thead>tr>td,
+.table-bordered>thead>tr>th {
+    border: 1px solid #b0b0b0;
+}
+
+@media screen and (min-width: 780px) {
+    #calendarTable th, #calendarTable td {
+        height: 70px;
+    }
+}
