@@ -1,3 +1,9 @@
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+if ($_SESSION['role'] == 2):
+?>
 <div class="container">
   
   <h2 class="text-center">Olet kirjautunut sisään lääkärinä</h2>  
@@ -62,3 +68,6 @@ $(function(){
     });
 });
 </script>
+<?php else: ?>
+<h1>Sinulla ei ole oikeutta nähdä tätä sivua</h1>
+<?php endif; ?>

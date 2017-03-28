@@ -199,3 +199,5 @@ Stack trace:
 Stack trace:
 #0 {main}
   thrown in /home/ubuntu/workspace/jeccu/doctor_addtimes.php on line 63
+[28-Mar-2017 17:36:07 Europe/Helsinki] PHP Notice:  Undefined variable: logged in /home/ubuntu/workspace/includes/header.php on line 1
+[28-Mar-2017 17:43:57 Europe/Helsinki] PHP Notice:  Undefined index: role in /home/ubuntu/workspace/includes/doctor_addtimesform.php on line 5

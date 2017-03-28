@@ -1,3 +1,9 @@
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+if ($_SESSION['role'] == 3):
+?>
 <div class="container add_doctor">  
     <h2>Luo käyttäjä</h2>
     <form id="add_doctor" action="jeccu/userAdd_2.php" method="post">
@@ -39,3 +45,6 @@
         <button class="btn btn-lg btn-primary btn-block userAdd" type="button" id="userAdd">Luo lääkärikäyttäjä</button>
     </form>
 </div>
+<?php else: ?>
+<h1>Sinulla ei ole oikeutta nähdä tätä sivua</h1>
+<?php endif; ?>
