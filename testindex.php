@@ -18,16 +18,21 @@ require 'jeccu/start_session.php';
         <title>index</title>
     </head>
     <body>
-        
         <?php 
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
         
-        /*
-        require 'jeccu/AvailableTime_class.php';
+        error_reporting(E_ALL);
+        ini_set('display_errors', 'on');
+        
+        include_once 'db/connect.php';
+        require 'jeccu/AvailableTimes_class.php';
         
         $var = new AvailableTimes();
         
         $var->getAvailableTimes();
-        */
+        
         
         ?>
 

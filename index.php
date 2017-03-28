@@ -1,5 +1,8 @@
 <?php 
 require 'jeccu/start_session.php';
+require 'db/connect.php';
+error_reporting(E_ALL);
+ini_set('display_errors', 'on');
 ?>
 
 <!doctype html>
