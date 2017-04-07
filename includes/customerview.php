@@ -4,13 +4,21 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 if ($_SESSION['role'] == 1):
 ?>
-<h2 class="text-center">Olet kirjautunut sisään asiakkaana.</h2>
 
+<h2 class="text-center">Voit selata aikoja kalenterista.</h2>
 <div class="container">
-
-<h2>terve</h2>
-
+    <?php
+    require 'jeccu/AvailableTimes.php';
+    
+    $times = new AvailableTimes();
+    $times->printTimes('2017-04-8');
+    ?>
+    
+    <?php
+    include 'test.php';
+    ?>
 </div>
+
 <?php else: ?>
 <h1>Sinulla ei ole oikeutta nähdä tätä sivua</h1>
 <?php endif; ?>

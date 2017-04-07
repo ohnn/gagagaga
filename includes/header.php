@@ -9,5 +9,7 @@
         
         <h1><?php echo 'Olet kirjautunut sisään käyttäjänä ' . $_SESSION['username']; ?></h1>
         
+        
+        
     </header>
 <?php endif; ?>    

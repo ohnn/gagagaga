@@ -16,6 +16,7 @@ if ($query) {
                 session_start();
                 $_SESSION['username'] = $row[0];
                 $_SESSION['role'] = $row[3];
+                $_SESSION['logged'] = true;
                 switch ($_SESSION['role']) {
                     case 2:
                         $_SESSION['doctorID'] = $row[5];

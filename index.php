@@ -72,12 +72,6 @@ ini_set('display_errors', 'on');
         ?>
 
     <br><br><br>
-    
-    <div class="container">
-    <?php
-    include 'test.php';
-    ?>
-    </div>
 
         <script src="js/main.js"></script>
     </body>

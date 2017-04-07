@@ -26,13 +26,10 @@ require 'jeccu/start_session.php';
         error_reporting(E_ALL);
         ini_set('display_errors', 'on');
         
-        include_once 'db/connect.php';
-        require 'jeccu/AvailableTimes_class.php';
+        require 'jeccu/AvailableTimes.php';
         
-        $var = new AvailableTimes();
-        
-        $var->getAvailableTimes();
-        
+        $times = new AvailableTimes();
+        $times->printTimes('2017-04-5');
         
         ?>
 

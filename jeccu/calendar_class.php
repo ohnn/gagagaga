@@ -9,7 +9,7 @@ require 'db/connect.php';
 // aikavyöhyke
 date_default_timezone_set ( 'Europe/Helsinki' );
 
-class Calendar{
+class Calendar {
     
     public $classDate;
     
@@ -32,8 +32,9 @@ class Calendar{
     // string muodossa Y-m-d
     private function amountOfTimes(string $givenDate): int {
         global $hene;
-        if ($query = $hene->prepare('SELECT varausID FROM kalenteri WHERE pvm=?')) {
-            $query->bind_param('s', $givenDate);
+        if ($query = $hene->prepare('SELECT varausID FROM kalenteri WHERE (pvm=? AND asiakasID=?)')) {
+            $asiakasID = 0;
+            $query->bind_param('si', $givenDate, $asiakasID);
             if ($query->execute()) {
                 $query->store_result();
                 return $query->num_rows; 
@@ -47,6 +48,8 @@ class Calendar{
         }
     }
 
+
+    // echo calendar
     public function outputCalendar() { 
     
         // muuttujat
@@ -87,7 +90,7 @@ class Calendar{
             $canBeCurrent = false;
         }
     
-        echo '<table class="table table-bordered" id="calendarTable" style="table-layout: fixed;">';
+        echo '<table class="table" id="calendarTable" style="table-layout: fixed;">';
         echo '<tr> <th colspan="7" class="text-center">';
         if ($this->isFutureDate(new DateTime($year . '-' . $month))) {
     	    echo '<span class="glyphicon glyphicon-chevron-left nuoli" id="subMonth" onclick="calendarLeft(this)" data-date="' . $last_month->format('Y-m-d') . '" style="float: left;"></span>';
@@ -116,14 +119,14 @@ class Calendar{
     	for($i = 1; $i <= $daysInMonth; $i++) {
     		if($day == $i && $canBeCurrent) {
     		    if ($this->amountOfTimes($year . '-' . $month . '-' . $i) >= 1) {
-    			    echo '<td class="text-center" data-toggle="tooltip" title="Tälle päivälle on ' . $this->amountOfTimes($year . '-' . $month . '-' . $i) . ' vapaata aikaa.">' . $i . '</td>';
+    			    echo '<td value="' . $year . '-' . $month . '-' . $i . '" class="text-center canHover" data-toggle="tooltip" title="Tälle päivälle on ' . $this->amountOfTimes($year . '-' . $month . '-' . $i) . ' vapaata aikaa."><strong>' . $i . '</strong></td>';
     		    } else {
-    		        echo '<td class="text-center"><strong>' . $i . '</strong></td>';
+    		        echo '<td value="' . $year . '-' . $month . '-' . $i . '" class="text-center"><strong>' . $i . '</strong></td>';
     		    }
     		} else if (!($this->isFutureDate(new DateTime($year . '-' . $month . '-' . $i)))) {
     		    echo '<td class="text-center passedDay">' . $i . '</td>';
     		} else if ($this->amountOfTimes($year . '-' . $month . '-' . $i) >= 1) {
-    		    echo '<td class="text-center" data-toggle="tooltip" title="Tälle päivälle on ' . $this->amountOfTimes($year . '-' . $month . '-' . $i) . ' vapaata aikaa.">' . $i . '</td>';
+    		    echo '<td value="' . $year . '-' . $month . '-' . $i . '" class="text-center canHover" data-toggle="tooltip" title="Tälle päivälle on ' . $this->amountOfTimes($year . '-' . $month . '-' . $i) . ' vapaata aikaa.">' . $i . '</td>';
     		} else if ($this->amountOfTimes($year . '-' . $month . '-' . $i) < 1) {
     		    echo '<td class="text-center noTimes">' . $i . '</td>';
     		} else {

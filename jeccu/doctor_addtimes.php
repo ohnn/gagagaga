@@ -13,12 +13,10 @@ $endTime = new DateTime($_POST['endTime']);
 
 if (!empty($startDate) && !empty($endDate) && !empty($startTime) && !empty($endTime)) {
 
-    // muuttujat päivien looppaamiselle
     $endDate->add(new DateInterval('P01D'));
     $dateInterval = DateInterval::createFromDateString('1 day');
     $datePeriod = new DatePeriod($startDate, $dateInterval, $endDate);
     
-    // muuttujat päivittäisten aikojen looppaamiselle
     $endTime->add(new DateInterval('PT30M'));
     $timeInterval = DateInterval::createFromDateString('30 minutes');
     $timePeriod = new DatePeriod($startTime, $timeInterval, $endTime);
