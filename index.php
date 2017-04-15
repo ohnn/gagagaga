@@ -52,10 +52,11 @@ ini_set('display_errors', 'on');
         <!-- /alertit -->
         
         <!-- näkymä tilasta riippuen -->
+        <div class="container roleContainer">
         <?php
         switch ( $role ) {
             case 1:
-                include 'includes/customerview.php';
+                include 'test.php';
                 break;
             case 2:
                 include 'includes/doctor_addtimesform.php';
@@ -70,9 +71,11 @@ ini_set('display_errors', 'on');
                 include 'includes/register.php';
         }
         ?>
+        </div>
 
     <br><br><br>
 
         <script src="js/main.js"></script>
+        <script src="js/ajax.js"></script>
     </body>
 </html>

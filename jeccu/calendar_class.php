@@ -13,7 +13,7 @@ class Calendar {
     
     public $classDate;
     
-    function __construct(string $givenDate = NULL) {
+    public function __construct(string $givenDate = NULL) {
         if ($givenDate != NULL) {
             $this->classDate = new DateTime($givenDate);
         } else {   
@@ -119,14 +119,14 @@ class Calendar {
     	for($i = 1; $i <= $daysInMonth; $i++) {
     		if($day == $i && $canBeCurrent) {
     		    if ($this->amountOfTimes($year . '-' . $month . '-' . $i) >= 1) {
-    			    echo '<td value="' . $year . '-' . $month . '-' . $i . '" class="text-center canHover" data-toggle="tooltip" title="Tälle päivälle on ' . $this->amountOfTimes($year . '-' . $month . '-' . $i) . ' vapaata aikaa."><strong>' . $i . '</strong></td>';
+    			    echo '<td onclick="getTimes(this)" value="' . $year . '-' . $month . '-' . $i . '" class="text-center canHover" data-toggle="tooltip" title="Tälle päivälle on ' . $this->amountOfTimes($year . '-' . $month . '-' . $i) . ' vapaata aikaa."><strong>' . $i . '</strong></td>';
     		    } else {
     		        echo '<td value="' . $year . '-' . $month . '-' . $i . '" class="text-center"><strong>' . $i . '</strong></td>';
     		    }
     		} else if (!($this->isFutureDate(new DateTime($year . '-' . $month . '-' . $i)))) {
     		    echo '<td class="text-center passedDay">' . $i . '</td>';
     		} else if ($this->amountOfTimes($year . '-' . $month . '-' . $i) >= 1) {
-    		    echo '<td value="' . $year . '-' . $month . '-' . $i . '" class="text-center canHover" data-toggle="tooltip" title="Tälle päivälle on ' . $this->amountOfTimes($year . '-' . $month . '-' . $i) . ' vapaata aikaa.">' . $i . '</td>';
+    		    echo '<td onclick="getTimes(this)" value="' . $year . '-' . $month . '-' . $i . '" class="text-center canHover" data-toggle="tooltip" title="Tälle päivälle on ' . $this->amountOfTimes($year . '-' . $month . '-' . $i) . ' vapaata aikaa.">' . $i . '</td>';
     		} else if ($this->amountOfTimes($year . '-' . $month . '-' . $i) < 1) {
     		    echo '<td class="text-center noTimes">' . $i . '</td>';
     		} else {

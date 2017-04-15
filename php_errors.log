@@ -201,3 +201,50 @@ Stack trace:
   thrown in /home/ubuntu/workspace/jeccu/doctor_addtimes.php on line 63
 [28-Mar-2017 17:36:07 Europe/Helsinki] PHP Notice:  Undefined variable: logged in /home/ubuntu/workspace/includes/header.php on line 1
 [28-Mar-2017 17:43:57 Europe/Helsinki] PHP Notice:  Undefined index: role in /home/ubuntu/workspace/includes/doctor_addtimesform.php on line 5
+[09-Apr-2017 00:33:52 Europe/Helsinki] PHP Warning:  require(jeccu/AvailableTimes.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/includes/customerview.php on line 11
+[09-Apr-2017 00:33:52 Europe/Helsinki] PHP Fatal error:  require(): Failed opening required 'jeccu/AvailableTimes.php' (include_path='.:/usr/share/php') in /home/ubuntu/workspace/includes/customerview.php on line 11
+[09-Apr-2017 00:34:27 Europe/Helsinki] PHP Warning:  require(jeccu/AvailableTimes.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/includes/customerview.php on line 13
+[09-Apr-2017 00:34:27 Europe/Helsinki] PHP Fatal error:  require(): Failed opening required 'jeccu/AvailableTimes.php' (include_path='.:/usr/share/php') in /home/ubuntu/workspace/includes/customerview.php on line 13
+[09-Apr-2017 00:35:52 Europe/Helsinki] PHP Warning:  require(jeccu/AvailableTimes.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/includes/customerview.php on line 13
+[09-Apr-2017 00:35:52 Europe/Helsinki] PHP Fatal error:  require(): Failed opening required 'jeccu/AvailableTimes.php' (include_path='.:/usr/share/php') in /home/ubuntu/workspace/includes/customerview.php on line 13
+[09-Apr-2017 00:36:17 Europe/Helsinki] PHP Warning:  require_once(jeccu/AvailableTimes.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/includes/customerview.php on line 13
+[09-Apr-2017 00:36:17 Europe/Helsinki] PHP Fatal error:  require_once(): Failed opening required 'jeccu/AvailableTimes.php' (include_path='.:/usr/share/php') in /home/ubuntu/workspace/includes/customerview.php on line 13
+[09-Apr-2017 00:40:14 Europe/Helsinki] PHP Fatal error:  Uncaught Error: Class 'AvailableTimes' not found in /home/ubuntu/workspace/includes/customerview.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/ubuntu/workspace/includes/customerview.php on line 16
+[09-Apr-2017 00:41:27 Europe/Helsinki] PHP Warning:  require_once(jeccu/AvailableTimes.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/includes/customerview.php on line 13
+[09-Apr-2017 00:41:27 Europe/Helsinki] PHP Fatal error:  require_once(): Failed opening required 'jeccu/AvailableTimes.php' (include_path='.:/usr/share/php') in /home/ubuntu/workspace/includes/customerview.php on line 13
+[09-Apr-2017 00:43:44 Europe/Helsinki] PHP Warning:  require_once(jeccu/AvailableTimes.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/includes/customerview.php on line 13
+[09-Apr-2017 00:43:44 Europe/Helsinki] PHP Fatal error:  require_once(): Failed opening required 'jeccu/AvailableTimes.php' (include_path='.:/usr/share/php') in /home/ubuntu/workspace/includes/customerview.php on line 13
+[09-Apr-2017 00:44:04 Europe/Helsinki] PHP Warning:  require_once(./jeccu/AvailableTimes.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/includes/customerview.php on line 13
+[09-Apr-2017 00:44:04 Europe/Helsinki] PHP Fatal error:  require_once(): Failed opening required './jeccu/AvailableTimes.php' (include_path='.:/usr/share/php') in /home/ubuntu/workspace/includes/customerview.php on line 13
+[09-Apr-2017 00:52:36 Europe/Helsinki] PHP Warning:  include(test.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/includes/customerview.php on line 17
+[09-Apr-2017 00:52:36 Europe/Helsinki] PHP Warning:  include(): Failed opening 'test.php' for inclusion (include_path='.:/usr/share/php') in /home/ubuntu/workspace/includes/customerview.php on line 17
+[09-Apr-2017 00:53:45 Europe/Helsinki] PHP Warning:  include(test.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/includes/customerview.php on line 17
+[09-Apr-2017 00:53:45 Europe/Helsinki] PHP Warning:  include(): Failed opening 'test.php' for inclusion (include_path='.:/usr/share/php') in /home/ubuntu/workspace/includes/customerview.php on line 17
+[09-Apr-2017 00:55:15 Europe/Helsinki] PHP Warning:  include(test.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/includes/customerview.php on line 17
+[09-Apr-2017 00:55:15 Europe/Helsinki] PHP Warning:  include(): Failed opening 'test.php' for inclusion (include_path='.:/usr/share/php') in /home/ubuntu/workspace/includes/customerview.php on line 17
+[09-Apr-2017 00:55:36 Europe/Helsinki] PHP Warning:  include(test.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/includes/customerview.php on line 17
+[09-Apr-2017 00:55:36 Europe/Helsinki] PHP Warning:  include(): Failed opening 'test.php' for inclusion (include_path='.:/usr/share/php') in /home/ubuntu/workspace/includes/customerview.php on line 17
+[11-Apr-2017 09:36:16 Europe/Helsinki] PHP Notice:  Only variables should be passed by reference in /home/ubuntu/workspace/jeccu/userAdd_2.php on line 27
+[11-Apr-2017 09:36:16 Europe/Helsinki] PHP Notice:  Only variables should be passed by reference in /home/ubuntu/workspace/jeccu/userAdd_2.php on line 27
+[14-Apr-2017 16:53:40 Europe/Helsinki] PHP Parse error:  syntax error, unexpected 'exit' (T_EXIT), expecting ',' or ';' in /home/ubuntu/workspace/jeccu/reserveTime.php on line 19
+[14-Apr-2017 16:54:38 Europe/Helsinki] PHP Parse error:  syntax error, unexpected 'exit' (T_EXIT), expecting ',' or ';' in /home/ubuntu/workspace/jeccu/reserveTime.php on line 19
+[14-Apr-2017 16:57:35 Europe/Helsinki] PHP Parse error:  syntax error, unexpected 'exit' (T_EXIT), expecting ',' or ';' in /home/ubuntu/workspace/jeccu/reserveTime.php on line 19
+[14-Apr-2017 16:59:17 Europe/Helsinki] PHP Warning:  require_once(db/connect.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/jeccu/AvailableTimes.php on line 10
+[14-Apr-2017 16:59:17 Europe/Helsinki] PHP Fatal error:  require_once(): Failed opening required 'db/connect.php' (include_path='.:/usr/share/php') in /home/ubuntu/workspace/jeccu/AvailableTimes.php on line 10
+[14-Apr-2017 17:06:17 Europe/Helsinki] PHP Fatal error:  Uncaught Error: Call to undefined method AvailableTimes::checkTimesStatus() in /home/ubuntu/workspace/jeccu/AvailableTimes.php:101
+Stack trace:
+#0 /home/ubuntu/workspace/jeccu/reserveTime.php(35): AvailableTimes::reserveTime(477, 1, ' ')
+#1 {main}
+  thrown in /home/ubuntu/workspace/jeccu/AvailableTimes.php on line 101
+[14-Apr-2017 17:06:40 Europe/Helsinki] PHP Notice:  Undefined property: mysqli_stmt::$close in /home/ubuntu/workspace/jeccu/AvailableTimes.php on line 122
+[14-Apr-2017 17:21:23 Europe/Helsinki] PHP Fatal error:  Uncaught Error: Call to undefined method AvailableTimes::checkTimesStatus() in /home/ubuntu/workspace/jeccu/AvailableTimes.php:106
+Stack trace:
+#0 /home/ubuntu/workspace/jeccu/reserveTime.php(35): AvailableTimes::reserveTime(534, 1, 'testi')
+#1 {main}
+  thrown in /home/ubuntu/workspace/jeccu/AvailableTimes.php on line 106
+[14-Apr-2017 17:22:00 Europe/Helsinki] PHP Notice:  Undefined property: mysqli_stmt::$close in /home/ubuntu/workspace/jeccu/AvailableTimes.php on line 127
+[14-Apr-2017 17:24:19 Europe/Helsinki] PHP Notice:  Undefined property: mysqli_stmt::$close in /home/ubuntu/workspace/jeccu/AvailableTimes.php on line 127
+[15-Apr-2017 13:15:22 Europe/Helsinki] PHP Notice:  Undefined property: mysqli_stmt::$close in /home/ubuntu/workspace/jeccu/AvailableTimes.php on line 127

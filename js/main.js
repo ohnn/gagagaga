@@ -17,13 +17,14 @@ function resetForm($form) {
          .removeAttr('checked').removeAttr('selected');
 }
 
-
+// clear url on refresh
 if (performance.navigation.type == 1) {
     var host = window.location.hostname;
     var path = window.location.pathname;
     var protocol = window.location.protocol;
     window.location = protocol + "//" + host + path;
 }
+
 
 $(document).ready(function() {
     
@@ -79,32 +80,8 @@ $(document).ready(function() {
     
 });
 
-
-// ajax-osuus alkaa tästä
-function calendarRight(el) {
-    var nextMonth = $(el).attr('data-date');
-    console.log('clickevent toimii');
-    $.ajax({
-      type: 'POST',
-      url: 'test.php',
-      data: {'month': nextMonth},
-      success: function(data){
-        console.log('xd');
-        $('#calendarTable').replaceWith(data);
-      }
-    });
-}
-
-function calendarLeft(el) {
-    var lastMonth = $(el).attr('data-date');
-    console.log('clickevent toimii');
-    $.ajax({
-      type: 'POST',
-      url: 'test.php',
-      data: {'month': lastMonth},
-      success: function(data){
-        console.log('xd');
-        $('#calendarTable').replaceWith(data);
-      }
-    });
+function addData(element) {
+       var value = $(element).attr('data-id');
+       console.log(value);
+       $('#varausID').attr('value', value);
 }
