@@ -90,7 +90,7 @@ class Calendar {
             $canBeCurrent = false;
         }
     
-        echo '<table class="table" id="calendarTable" style="table-layout: fixed;">';
+        echo '<table class="table reserveTimeElement" id="calendarTable" style="table-layout: fixed;">';
         echo '<tr> <th colspan="7" class="text-center">';
         if ($this->isFutureDate(new DateTime($year . '-' . $month))) {
     	    echo '<span class="glyphicon glyphicon-chevron-left nuoli" id="subMonth" onclick="calendarLeft(this)" data-date="' . $last_month->format('Y-m-d') . '" style="float: left;"></span>';

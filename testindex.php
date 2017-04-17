@@ -28,9 +28,7 @@ require 'jeccu/start_session.php';
         
         require 'jeccu/AvailableTimes.php';
         
-        $times = new AvailableTimes();
-        $times->printTimes('2017-04-5');
-        
+        AvailableTimes::printTimesDoctor(9);
         ?>
 
         <script src="js/main.js"></script>

@@ -14,7 +14,7 @@ if (!isset($_SESSION['logged']) || !$_SESSION['logged']) {
 <?php
 
 /**
- * Used in function getTimes / ajax.js
+ * Gets called from function getTimes / ajax.js
  */
 
 
@@ -22,7 +22,7 @@ require 'jeccu/AvailableTimes.php';
 
 if (isset($_POST['date'])):
 ?>
-        <div class="availabletimesContainer"><button type="button" class="btn btn-link takaisin"><span class="glyphicon glyphicon-arrow-left"></span></button>
+        <div class="availabletimesContainer reserveTimeElement"><button type="button" class="btn btn-link takaisin"><span class="glyphicon glyphicon-arrow-left"></span></button>
         
         <?php
         AvailableTimes::printTimes($_POST['date']);

@@ -59,7 +59,7 @@ ini_set('display_errors', 'on');
                 include 'test.php';
                 break;
             case 2:
-                include 'includes/doctor_addtimesform.php';
+                include 'includes/doctorView.php';
                 break;
             case 3:
                 include 'includes/addUser_selection.php';

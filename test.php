@@ -8,8 +8,10 @@ if (session_status() == PHP_SESSION_NONE) {
 if (!isset($_SESSION['logged']) || !$_SESSION['logged']) {
     echo '<h3>asdf</h3>';
     exit;
-}    
+}
 ?>
+
+<h2 class="reserveTimeElement varaaAika">Varaa aika</h2>
 
 <?php
 require 'jeccu/calendar_class.php';

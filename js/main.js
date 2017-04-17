@@ -1,20 +1,19 @@
-
-function changeViews (toBeHidden, toBeShown) {
+function changeViews(toBeHidden, toBeShown) {
     $(toBeHidden).animate({
-            opacity: 0
-        }, 600, function() {
-            $(this).hide();
-            $(toBeShown).show();
-            $(toBeShown).animate({
-                opacity: 1
-            });
+        opacity: 0
+    }, 600, function() {
+        $(this).hide();
+        $(toBeShown).show();
+        $(toBeShown).animate({
+            opacity: 1
         });
+    });
 }
 
 function resetForm($form) {
     $form.find('input:text, input:password, input:file, select, textarea').val('');
     $form.find('input:radio, input:checkbox')
-         .removeAttr('checked').removeAttr('selected');
+        .removeAttr('checked').removeAttr('selected');
 }
 
 // clear url on refresh
@@ -27,16 +26,16 @@ if (performance.navigation.type == 1) {
 
 
 $(document).ready(function() {
-    
+
     $('.registerButton').click(function() {
         changeViews($('.form-signin'), $('.form-signup'));
     });
-    
+
     $('.backToLogin').click(function() {
         changeViews($('.form-signup'), $('.form-signin'));
     });
-    
-    
+
+
     $('#role').change(function() {
         switch ($('#role').val()) {
             case "2":
@@ -55,7 +54,7 @@ $(document).ready(function() {
                 break;
         }
     });
-    
+
     $('#userAdd, .userAdd').click(function() {
         var form = $(this).parent();
         var username = form.find('#inputName1').val();
@@ -78,10 +77,17 @@ $(document).ready(function() {
         }
     });
     
+    $('.reserveTimeElement').css('opacity', '1');
+    
+    $('.doctor-AddTimesContainer').css('opacity', '1');
+    
 });
 
-function addData(element) {
-       var value = $(element).attr('data-id');
-       console.log(value);
-       $('#varausID').attr('value', value);
+// mistä mihin
+function addData(element, element2) {
+    var value = $(element).attr('data-id');
+    console.log(value);
+    $(element2).attr('value', value);
 }
+
+

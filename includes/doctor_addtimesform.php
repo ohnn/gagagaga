@@ -4,9 +4,8 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 if ($_SESSION['role'] == 2):
 ?>
-<div class="container">
-  
-  <h2 class="text-center">Olet kirjautunut sisään lääkärinä</h2>  
+
+<div class="container doctor-AddTimesContainer">
   
   <form class="form-addtimes" action="jeccu/doctor_addtimes.php" method="post">
     <h2 class="form-signup-heading">Lisää työaikoja</h2>

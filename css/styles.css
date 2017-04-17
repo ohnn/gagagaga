@@ -2,7 +2,23 @@ body {
     font-family: 'Cabin', sans-serif;
     font-size: 20px;
     background-color: #fafafa;
-/*    background-image: url('../img/suomisatan.jpg'); */
+    /*    background-image: url('../img/suomisatan.jpg'); */
+}
+
+.navbar-inverse .navbar-nav>li>a:focus,
+.navbar-inverse .navbar-nav>li>a:hover,
+.navbar-inverse .navbar-toggle:focus,
+.navbar-inverse .navbar-toggle:hover {
+    background-color: #285f8f;
+}
+
+.navbar-inverse .navbar-toggle:focus,
+.navbar-inverse .navbar-toggle:hover {
+    border-color: #285f8f;
+}
+
+.navbar-inverse .navbar-toggle {
+    border-color: #337ab7;
 }
 
 .jumbotron {
@@ -156,6 +172,10 @@ select.inline#toimipisteID,
     cursor: pointer;
 }
 
+.freeTime #removeReservation {
+    cursor: pointer;
+}
+
 .takaisin {
     margin-bottom: 12px;
 }
@@ -172,9 +192,54 @@ select.inline#toimipisteID,
     font-size: 30px;
 }
 
+.dropdown-toggle {
+    background-color: #337ab7 !important;
+}
+
+.navbar-inverse .navbar-collapse,
+.navbar-inverse .navbar-form {
+    border-color: #337ab7;
+}
+
+#removeReservation span {
+    color: #E50000;
+}
+
+#removeReservation:active,
+#removeReservation:focus {
+    background-color: #d4d4d6;
+}
+
+#removeReservation:hover {
+    background-color: #e1e1e3;
+}
+
+.removeReservationSuccess,
+.removeReservationDanger {
+    opacity: 1;
+}
+
+.customerTimes,
+.reserveTimeElement {
+    opacity: 0;
+}
+
+.doctor-AddTimesContainer {
+    opacity: 0;
+}
+
 @media screen and (min-width: 780px) {
     #calendarTable th,
     #calendarTable td {
         height: 70px;
+    }
+}
+
+@media (max-width: 767px) {
+    .navbar-inverse .navbar-nav .open .dropdown-menu>li>a {
+        color: #fafafa;
+    }
+    .navbar a:hover {
+        background-color: #285f8f !important;
     }
 }
