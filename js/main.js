@@ -90,4 +90,6 @@ function addData(element, element2) {
     $(element2).attr('value', value);
 }
 
-
+function addMessage(message, target) {
+    $(target).text(message);
+}

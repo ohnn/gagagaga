@@ -32,8 +32,8 @@ if ($_SESSION['role'] == 2):
     <br>
         
     <label for="startDate">Työpäivät</label><br>
-    <input type="text" name="startDate" id="startDate" class="form-control inline align-left" required autofocus>    
-    <input type="text" name="endDate" id="endDate" class="form-control inline align-right" required autofocus>    
+    <input type="text" name="startDate" id="startDate" class="form-control inline align-left" required autofocus>
+    <input type="text" name="endDate" id="endDate" class="form-control inline align-right" required autofocus> <hr class="valiviiva">
     
     <button class="btn btn-lg btn-primary btn-block" type="submit" id="addTimes">Lisää ajat</button>
   </form>

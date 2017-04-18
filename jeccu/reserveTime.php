@@ -23,7 +23,7 @@ $varausID = $_POST['varausID'];
 
 // alustetaan viestimuuttuja
 if (!isset($_POST['viesti']) || $_POST['viesti'] == '') {
-    $message = ' ';
+    $message = '';
 } else {
     $message = $_POST['viesti'];
 }

@@ -72,6 +72,7 @@ class AvailableTimes {
 		$times = array();
 		
 		while ($row = $results->fetch_array(MYSQLI_ASSOC)) {
+			if (new DateTime($row['pvm']) >= new DateTime('now'))
 			// format date
 			$rowDate = new DateTime($row['pvm']);
 			$row['pvm'] = $rowDate->format('d.m.Y');
@@ -156,8 +157,10 @@ class AvailableTimes {
 		// given date, no reservation, any doctor
 		$times = AvailableTimes::getTimes($calendarDate, 0, 0);
 		
-		echo "<table class=\"availableTimes table table-hover table-striped\">";
-		echo "<thead><tr><th>Nimi</th><th>Erikoisala</th><th>Toimipiste</th><th>Päivämäärä</th><th>Aika</th></tr></thead>";
+		echo "<table class=\"sortTable availableTimes table table-hover table-striped\">";
+		echo "<thead><tr><th>Nimi <span class=\"glyphicon glyphicon-triangle-bottom\"></span></th><th>Erikoisala <span class=\"glyphicon glyphicon-triangle-bottom\"></span></th>
+			<th>Toimipiste <span class=\"glyphicon glyphicon-triangle-bottom\"></span></th><th>Päivämäärä <span class=\"glyphicon glyphicon-triangle-bottom\"></span></th>
+			<th>Aika <span class=\"glyphicon glyphicon-triangle-bottom\"></span></th></tr></thead>";
 		echo "<tbody>";
 		
 		foreach($times as $row) {
@@ -184,8 +187,10 @@ class AvailableTimes {
 		if (isset($times[0])) {
 			
 			echo "<h2 class=\"freeTime customerTimes\">Varaamasi ajat</h2>";
-			echo "<table class=\"freeTime table table-hover table-striped customerTimes\">";
-			echo "<thead><tr><th>Nimi</th><th>Erikoisala</th><th>Toimipiste</th><th>Päivämäärä</th><th>Aika</th></tr></thead>";
+			echo "<table class=\"freeTime sortTable table table-hover table-striped customerTimes\">";
+			echo "<thead><tr><th>Nimi <span class=\"glyphicon glyphicon-triangle-bottom\"></span></th>
+				<th>Erikoisala <span class=\"glyphicon glyphicon-triangle-bottom\"></span></th><th>Toimipiste <span class=\"glyphicon glyphicon-triangle-bottom\"></span></th>
+				<th>Päivämäärä <span class=\"glyphicon glyphicon-triangle-bottom\"></span></th><th>Aika <span class=\"glyphicon glyphicon-triangle-bottom\"></span></th></tr></thead>";
 			echo "<tbody>";
 			
 			foreach($times as $row) {
@@ -197,7 +202,7 @@ class AvailableTimes {
 					}	
 				}
 				
-				echo "<td id=\"removeReservation\" data-toggle=\"modal\" data-target=\"#confirmModal\" onclick=\"addData(this, '#confirmButton')\" data-id=\"". $row['varausID'] . "\"><span class=\"glyphicon glyphicon-remove\"></span> Poista</td></tr>";
+				echo "<td><button class=\"btn btn-danger\" id=\"removeReservation\" data-toggle=\"modal\" data-target=\"#confirmModal\" onclick=\"addData(this, '#confirmButton')\" data-id=\"". $row['varausID'] . "\">Poista</button></td></tr>";
 			}
 			
 			echo "</tbody>";
@@ -214,7 +219,7 @@ class AvailableTimes {
 		// any date, reserved to any customer, given doctor
 		$times = AvailableTimes::getTimes("1", -1, $doctor);
 		
-		if (!$conn = $hene->prepare('SELECT asiakas.etunimi, asiakas.sukunimi, kalenteri.viesti
+		if (!$conn = $hene->prepare('SELECT asiakas.etunimi, asiakas.sukunimi, kalenteri.viesti, kalenteri.pvm
 									FROM asiakas
 										LEFT JOIN hene.kalenteri ON asiakas.asiakasID = kalenteri.asiakasID
 									WHERE (kalenteri.laakariID = ?) AND kalenteri.asiakasID > 0')) {
@@ -236,15 +241,18 @@ class AvailableTimes {
 		$customerNames = array();
 		
 		while ($row = $results->fetch_array(MYSQLI_ASSOC)) {
-			// combine first and last name
-			$row['etunimi'] = $row['etunimi'] . ' ' . $row['sukunimi'];
-			unset($row['sukunimi']);
-			
-			$customerNames[] = $row;
+			if (new DateTime($row['pvm']) >= new DateTime('now')) {
+				// combine first and last name
+				$row['etunimi'] = $row['etunimi'] . ' ' . $row['sukunimi'];
+				unset($row['sukunimi']);
+				
+				$customerNames[] = $row;
+			}	
 		}
 		
 		foreach($times as $key => $current) {
 			$times[$key]['etunimi'] = $customerNames[$key]['etunimi'];
+			$times[$key]['viesti'] = $customerNames[$key]['viesti'];
 			
 			unset($times[$key]['erikoisalaseloste']);
 			unset($times[$key]['toimipistenimi']);
@@ -256,20 +264,29 @@ class AvailableTimes {
 		if (isset($times[0])) {
 			
 			echo "<h2 class=\"freeTime customerTimes\">Sinulle varatut ajat</h2>";
-			echo "<table class=\"freeTime table table-hover table-striped customerTimes\">";
-			echo "<thead><tr><th>Nimi</th><th>Päivämäärä</th><th>Aika</th></tr></thead>";
+			echo "<table class=\"sortTable freeTime table table-hover table-striped customerTimes\">";
+			echo "<thead><tr><th>Nimi <span class=\"glyphicon glyphicon-triangle-bottom\"></span></th><th>Päivämäärä <span class=\"glyphicon glyphicon-triangle-bottom\"></span></th>
+					<th>Aika <span class=\"glyphicon glyphicon-triangle-bottom\"></span></th><th>Viesti <span class=\"glyphicon glyphicon-triangle-bottom\"></span></th></tr></thead>";
 			echo "<tbody>";
 			
 			foreach($times as $row) {
-				echo "<tr class=\"timeRow\" data-id=\"". $row['varausID'] . "\" id=\"". $row['varausID'] . "\">";
+				echo "<tr class=\"timeRow defaultCursor\" data-id=\"". $row['varausID'] . "\" id=\"". $row['varausID'] . "\">";
 				
 				foreach($row as $key => $value) {
 					if ($key != 'varausID') {
-						echo "<td>$value</td>";
+						if ($key == 'viesti') {
+							if ($value != " " && $value != "") {
+								echo '<td><button class="btn btn-default" data-toggle="modal" data-target="#viestiModal" onclick="addMessage(\''.$value.'\', \'#modalMessage\')">Näytä viesti</button></td>';
+							} else {
+								echo '<td>Ei viestiä</td>';
+							}
+						} else {
+							echo "<td>$value</td>";
+						}
 					}	
 				}
 				
-				echo "<td id=\"removeReservation\" data-toggle=\"modal\" data-target=\"#confirmModal\" onclick=\"addData(this, '#confirmButton')\" data-id=\"". $row['varausID'] . "\"><span class=\"glyphicon glyphicon-remove\"></span> Poista</td></tr>";
+				echo "<td><button class=\"btn btn-danger\" id=\"removeReservation\" data-toggle=\"modal\" data-target=\"#confirmModal\" onclick=\"addData(this, '#confirmButton')\" data-id=\"". $row['varausID'] . "\">Poista</button></td></tr>";
 			}
 			
 			echo "</tbody>";

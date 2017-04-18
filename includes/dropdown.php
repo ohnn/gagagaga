@@ -3,7 +3,7 @@
     <ul class="dropdown-menu">
         <?php switch($role): 
         // asiakas
-        case 1: ?>
+        case 1:         /* Jokaisella näkymällä oma luokkansa, jonka perusteella näytetään / ei näytetä */ ?>
         <li><a href="#" onclick="loadAndChange('.customerTimes', '.reserveTimeElement', 'test.php')">Ajanvaraus</a></li>
         <li><a href="#" onclick="loadAndChange('.reserveTimeElement', '.customerTimes', 'includes/customerTimes.php')">Varatut ajat</a></li>
         <?php break; ?>

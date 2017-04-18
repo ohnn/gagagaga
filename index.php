@@ -77,5 +77,6 @@ ini_set('display_errors', 'on');
 
         <script src="js/main.js"></script>
         <script src="js/ajax.js"></script>
+        <script src="tablesorter/jquery.tablesorter.js"></script>
     </body>
 </html>

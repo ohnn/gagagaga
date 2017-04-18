@@ -109,3 +109,7 @@ function removeReservation(element) {
         });
     });
 }
+
+$( document ).ajaxComplete(function() {
+    $(".sortTable").tablesorter();
+});

@@ -1,5 +1,6 @@
 <?php 
-require 'jeccu/start_session.php';
+error_reporting(E_ALL);
+ini_set('display_errors', 'on');
 ?>
 
 <!doctype html>
@@ -8,7 +9,7 @@ require 'jeccu/start_session.php';
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link href="css/styles.css" rel="stylesheet">
+        <link href="view/css/styles.css" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
         <link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
@@ -18,23 +19,7 @@ require 'jeccu/start_session.php';
         <title>index</title>
     </head>
     <body>
-        <?php 
-        if (session_status() == PHP_SESSION_NONE) {
-            session_start();
-        }
-        
-        error_reporting(E_ALL);
-        ini_set('display_errors', 'on');
-        
-        require 'jeccu/AvailableTimes.php';
-        
-        AvailableTimes::printTimesDoctor(9);
-        ?>
-        <script src="tablesorter/jquery.tablesorter.js"></script>
+        <?php include 'view/userForm.php'; ?>
         <script src="js/main.js"></script>
-        <script>
-            $('.customerTimes').css('opacity', '1');
-            $(".sortTable").tablesorter();
-        </script>
     </body>
 </html>

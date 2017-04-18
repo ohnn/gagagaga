@@ -8,6 +8,7 @@ if (session_status() == PHP_SESSION_NONE) {
 
 require_once '../jeccu/AvailableTimes.php';
 include 'confirmModal.php';
+include 'viestiModal.php';
 
 AvailableTimes::printTimesDoctor($_SESSION['doctorID']);
 
