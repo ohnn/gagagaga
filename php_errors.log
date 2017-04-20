@@ -293,3 +293,5 @@ Stack trace:
 [17-Apr-2017 19:11:53 Europe/Helsinki] PHP Warning:  Invalid argument supplied for foreach() in /home/ubuntu/workspace/jeccu/AvailableTimes.php on line 267
 [17-Apr-2017 19:11:53 Europe/Helsinki] PHP Warning:  Illegal string offset 'varausID' in /home/ubuntu/workspace/jeccu/AvailableTimes.php on line 273
 [18-Apr-2017 11:22:12 Europe/Helsinki] PHP Parse error:  syntax error, unexpected '}', expecting ',' or ';' in /home/ubuntu/workspace/jeccu/AvailableTimes.php on line 280
+[19-Apr-2017 10:43:03 Europe/Helsinki] PHP Warning:  include(view/databasesForm.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/install/index.php on line 22
+[19-Apr-2017 10:43:03 Europe/Helsinki] PHP Warning:  include(): Failed opening 'view/databasesForm.php' for inclusion (include_path='.:/usr/share/php') in /home/ubuntu/workspace/install/index.php on line 22
