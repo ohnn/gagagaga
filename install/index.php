@@ -21,6 +21,28 @@ ini_set('display_errors', 'on');
         <?php include 'view/form.php'; ?>
         <br><br>
         <?php // include 'view/userForm.php'; ?>
-        <script src="../js/main.js"></script>
+        <script>
+        $('#button-install').click(function() {
+            var form = $(this).parent();
+            var username = form.find('#inputName1').val();
+            var pw1 = form.find('#registerPassword').val();
+            var pw2 = form.find('#registerPassword1').val();
+            if (/[^a-zA-Z0-9]/.test(username)) {
+                alert('Ainoastaan kirjaimet A-Z ja numerot 0-9 ovat sallittuja.');
+                return;
+            }
+            if (username.length < 4 || username.length > 18) {
+                alert('Käyttäjänimen tulee olla vähintään 4 merkkiä ja korkeintaan 18 merkkiä pitkä');
+                return;
+            }
+            if (pw1 == pw2 && pw1.length >= 4) {
+                form.submit();
+            }
+            else {
+                alert('Salasanat eivät täsmää tai salasana ei ole tarpeeksi pitkä (salasanan tulee olla vähintään neljä merkkiä pitkä).');
+                return;
+            }
+        });
+    </script>
     </body>
 </html>

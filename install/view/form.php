@@ -1,7 +1,14 @@
 <div class="container add_admin"> 
     <h2>Tietokannat</h2>
     <h3>Varmista, että olet luonut kaksi tietokantaa sekä käyttäjät, joilla on näihin tietokantoihin täydet oikeudet.</h3>
-    <form id="form-install-database" action="action/createDatabases.php" method="post">
+    <form id="form-install-database" action="action/createstuff.php" method="post">
+        
+        <h2>Host</h2>
+        <label for="hostname" class="sr-only">host</label>
+        <input type="text" name="hostname" id="hostname" class="form-control" placeholder="Host" required autofocus>
+        
+        <br><br>
+        
         <h2>Ensimmäinen tietokanta (ajanvaraussysteemi)</h2>
         <label for="_databasename" class="sr-only">Ensimmäisen tietokannan nimi</label>
         <input type="text" name="_databasename" id="_databasename" class="form-control" placeholder="Ensimmäisen tietokannan nimi" required autofocus>
@@ -36,6 +43,6 @@
         <label for="registerPassword1" class="sr-only">Salasana uudestaan</label>
         <input type="password" name="registerPassword1" id="registerPassword1" class="form-control lastForm inline align-right" placeholder="Salasana uudelleen" required>
         
-        <button class="btn btn-lg btn-primary" type="submit">Asenna</button>
+        <button class="btn btn-lg btn-primary" type="button" id="button-install">Asenna</button>
     </form>
 </div>

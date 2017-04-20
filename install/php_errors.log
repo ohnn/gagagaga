@@ -155,3 +155,5 @@ Stack trace:
 [19-Apr-2017 12:39:07 Europe/Helsinki] PHP Notice:  Undefined variable: i in /home/ubuntu/workspace/install/action/createDatabases.php on line 25
 [19-Apr-2017 12:39:07 Europe/Helsinki] PHP Notice:  Trying to get property of non-object in /home/ubuntu/workspace/install/action/createDatabases.php on line 25
 [19-Apr-2017 13:08:00 Europe/Helsinki] PHP Notice:  Undefined index: HTTP_CLIENT_IP in /home/ubuntu/workspace/install/action/createDatabases.php on line 17
+[20-Apr-2017 09:39:04 Europe/Helsinki] PHP Warning:  mysqli::__construct(): php_network_getaddresses: getaddrinfo failed: Name or service not known in /home/ubuntu/workspace/testinstall/install/action/createstuff.php on line 19
+[20-Apr-2017 09:39:04 Europe/Helsinki] PHP Warning:  mysqli::__construct(): (HY000/2002): php_network_getaddresses: getaddrinfo failed: Name or service not known in /home/ubuntu/workspace/testinstall/install/action/createstuff.php on line 19
