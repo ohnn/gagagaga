@@ -1,4 +1,4 @@
-<div id="reserveModal" class="modal fade">
+<div id="reserveModal" class="modal fade reserveModal">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">

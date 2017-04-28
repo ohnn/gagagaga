@@ -72,20 +72,21 @@ class AvailableTimes {
 		$times = array();
 		
 		while ($row = $results->fetch_array(MYSQLI_ASSOC)) {
-			if (new DateTime($row['pvm']) >= new DateTime('now'))
-			// format date
-			$rowDate = new DateTime($row['pvm']);
-			$row['pvm'] = $rowDate->format('d.m.Y');
-			
-			// format hours:minutes
-			$rowDate = new DateTime($row['klo']);
-			$row['klo'] = $rowDate->format('H:i');
-			
-			// combine first and last name
-			$row['etunimi'] = $row['etunimi'] . ' ' . $row['sukunimi'];
-			unset($row['sukunimi']);
-			
-			$times[] = $row;
+			if (new DateTime($row['pvm']) >= new DateTime('now')) {
+				// format date
+				$rowDate = new DateTime($row['pvm']);
+				$row['pvm'] = $rowDate->format('d.m.Y');
+				
+				// format hours:minutes
+				$rowDate = new DateTime($row['klo']);
+				$row['klo'] = $rowDate->format('H:i');
+				
+				// combine first and last name
+				$row['etunimi'] = $row['etunimi'] . ' ' . $row['sukunimi'];
+				unset($row['sukunimi']);
+				
+				$times[] = $row;
+			}
 		}        
 		
 		$conn->close();
@@ -194,7 +195,7 @@ class AvailableTimes {
 			echo "<tbody>";
 			
 			foreach($times as $row) {
-				echo "<tr class=\"timeRow\" data-id=\"". $row['varausID'] . "\" id=\"". $row['varausID'] . "\">";
+				echo "<tr class=\"timeRow defaultCursor\" data-id=\"". $row['varausID'] . "\" id=\"". $row['varausID'] . "\">";
 				
 				foreach($row as $key => $value) {
 					if ($key != 'varausID') {
@@ -276,7 +277,7 @@ class AvailableTimes {
 					if ($key != 'varausID') {
 						if ($key == 'viesti') {
 							if ($value != " " && $value != "") {
-								echo '<td><button class="btn btn-default" data-toggle="modal" data-target="#viestiModal" onclick="addMessage(\''.$value.'\', \'#modalMessage\')">Näytä viesti</button></td>';
+								echo '<td><button class="btn btn-default" data-toggle="modal" data-target=".viestiModal" onclick="addMessage(\''.$value.'\', \'.modalMessage\')">Näytä viesti</button></td>';
 							} else {
 								echo '<td>Ei viestiä</td>';
 							}
